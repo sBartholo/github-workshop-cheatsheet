@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  api:
+    image: docker.pkg.github.com/sbartholo/codetocloud-source/fabrikam-api:latest
+    ports:
+      - "3001:3001"
+  web:
+    image: docker.pkg.github.com/sbartholo/codetocloud-source/fabrikam-web:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - api
+    environment:
+      CONTENT_API_URL: http://api:3001
