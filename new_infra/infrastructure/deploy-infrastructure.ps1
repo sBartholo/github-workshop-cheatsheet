@@ -3,7 +3,7 @@ param
     [string] $studentprefix = "tst"
 )
 
-$resourcegroupName = "LAB-fabmedical-rg-" + $studentprefix
+$resourcegroupName = "fabmedical-rg-" + $studentprefix
 $cosmosDBName = "fabmedical-cdb-" + $studentprefix
 $webappName = "fabmedical-web-" + $studentprefix
 $planName = "fabmedical-plan-" + $studentprefix
@@ -40,7 +40,7 @@ az webapp create `
 
 az webapp config container set `
 --docker-registry-server-password $($env:CR_PAT) `
---docker-registry-server-url docker.pkg.github.com `
+--docker-registry-server-url https://docker.pkg.github.com `
 --docker-registry-server-user notapplicable `
 --multicontainer-config-file docker-compose.yml `
 --multicontainer-config-type COMPOSE `
